@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """This module contains the PicklableBase class."""
+from copy import deepcopy
 from threading import Lock
 from typing import Dict, Any
 
@@ -34,3 +35,14 @@ class PicklableBase:
         for key in [k for k in state if k.endswith('_lock')]:
             state[key] = Lock()
         self.__dict__.update(state)
+
+    def __copy__(self) -> 'PicklableBase':
+        """
+        Gets called, when object is being copied. Sets all variables ending on ``_lock`` to
+        a new :obj:`None`.
+        """
+        out = deepcopy(self)
+        for key in list(out.__dict__.keys()):
+            if key.endswith('_lock'):
+                out.__dict__[key] = None
+        return out

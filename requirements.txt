@@ -1,4 +1,4 @@
-python-telegram-bot[json]==12.8
+python-telegram-bot[json]==13.0
 emoji
 geopy==1.21.0
 vobject==0.9.6.1
@@ -7,4 +7,4 @@ python-dateutil==2.8.1
 camelot-py[cv]
 numpy
 pandas
-git+https://gitlab.com/HirschHeissIch/ptbstats.git@v1.2
+git+https://gitlab.com/HirschHeissIch/ptbstats.git@v1.3
